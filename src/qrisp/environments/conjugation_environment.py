@@ -175,24 +175,28 @@ class ConjugationEnvironment(QuantumEnvironment):
     
     def __exit__(self, exception_type, exception_value, traceback):
         
-        conjugation_center_data = list(self.env_qs.data)
-        self.env_qs.data = []
-        self.perform_conjugation(conjugation_center_data)
+        self.perform_conjugation()
         
         QuantumEnvironment.__exit__(self, exception_type, exception_value, traceback)
         
     
     @custom_control
-    def perform_conjugation(self, conjugation_center_data, ctrl = None, ctrl_method = None):
+    def perform_conjugation(self, ctrl = None, ctrl_method = None):
+        
+        temp = list(self.env_qs.data)
+        self.env_qs.data = []
         
         for instr in self.conjugation_circ.data:
             self.env_qs.append(instr)
             
+        # self.env_qs.data.extend(self.conjugation_circ.data)
+        
         if ctrl is not None:
             with control(ctrl, ctrl_method = ctrl_method):
-                self.env_qs.data.extend(conjugation_center_data)
+                self.env_qs.data.extend(temp)
         else:
-            self.env_qs.data.extend(conjugation_center_data)
+            
+            self.env_qs.data.extend(temp)
         
         for instr in self.conjugation_circ.inverse().data:
             self.env_qs.append(instr)
