@@ -17,6 +17,8 @@ This algorithms submodule of Qrisp provides a collection of commonly used quantu
      - enhancing amplitude of a target state
    * - :ref:`Quantum Amplitude Estimation <QAE>`
      - estimating the amplitude of a target state
+   * - :ref:`Accelerated Quantum Amplitude Estimation <QAEacc>`
+     - Accelerated estimation the amplitude of a target state
    * - :ref:`QAOA <QAOA>`
      - solving combinatorial optimizatin problems
    * - :ref:`QIRO <QIRO>`
@@ -45,6 +47,7 @@ We encourage you to explore these algorithms, delve into their documentation, an
    QPE
    amplitude_amplification
    QAE
+   QAEacc
    QAOA
    QIRO
    Shor
@@ -52,6 +55,7 @@ We encourage you to explore these algorithms, delve into their documentation, an
    QuantumBacktrackingTree
    quantum_counting
    demux
+   Dicke_state
    cyclic_shift
    iterable_permutation
    

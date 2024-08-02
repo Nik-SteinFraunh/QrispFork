@@ -156,7 +156,7 @@ The code example defines our mixer. It calls the inverse conjugated formulation 
         
     def portfolio_mixer():
 
-        from qrisp.misc.dicke_state import dicke_state
+        from qrisp import dicke_state
 
         def inv_prepare_dicke(qv, k):
             with invert():
